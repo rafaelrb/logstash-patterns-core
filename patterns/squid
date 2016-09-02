@@ -1,0 +1,4 @@
+# Works great with squid local files or data comming from syslog
+# Have tested with 5586269 lines of squid log about 2500 different users on the log.
+
+(%{DATA:head}:)?\s+%{NUMBER:timestamp}\s+%{NUMBER:response_time} %{IPORHOST:src_ip} %{NOTSPACE:squid_request_status}/%{NUMBER:http_status_code} %{NUMBER:transfer_size} %{NOTSPACE:http_method} (%{URIPROTO:proto}://)?%{NOTSPACE:request_url}(:%{INT:tcp_port})?(/%{NOTSPACE:url_path})?\s+%{NOTSPACE:client_identity}\s+%{NOTSPACE:peer_code}/%{NOTSPACE:peerhost}\s+%{NOTSPACE:content_type}
